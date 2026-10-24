@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f6f6f8;
+  --bg-hover: #eeeef2;
+  --fg: #18181b;
+  --fg-muted: #71717a;
+  --border: #e4e4e7;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+  --danger: #dc2626;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0b0f;
+    --bg-soft: #15151b;
+    --bg-hover: #1f1f27;
+    --fg: #ececf1;
+    --fg-muted: #9a9aa6;
+    --border: #2a2a33;
+    --accent: #818cf8;
+    --accent-soft: #1e1b4b;
+    --danger: #f87171;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-bg-hover: var(--bg-hover);
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-line: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-danger: var(--danger);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+}
+
+@utility input {
+  @apply w-full rounded-lg border border-line bg-bg px-3 py-2 text-sm outline-none focus:border-accent;
+}
+
+@utility btn {
+  @apply inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors disabled:opacity-50;
+}
+
+@utility btn-primary {
+  @apply btn bg-accent text-white hover:opacity-90;
+}
+
+@utility btn-ghost {
+  @apply btn text-muted hover:bg-bg-hover hover:text-fg;
+}
+
+@utility label {
+  @apply mb-1 block text-xs font-medium text-muted;
+}
